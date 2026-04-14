@@ -1,4 +1,4 @@
-import customerModel from "../models/customers"
+import customerModel from "../models/customers.js"
 
 //Creo un array de funciones
 const customerController = {};

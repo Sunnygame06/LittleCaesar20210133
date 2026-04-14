@@ -19,7 +19,6 @@ registerCustomerController.register = async (req, res) => {
             email, 
             password, 
             isVerified, 
-            loginAttemps, 
             timeOut} = req.body;
 
             //#2- Validar si el correo existe en la base de datos
@@ -44,8 +43,7 @@ registerCustomerController.register = async (req, res) => {
                     birthdate, 
                     email, 
                     password: passwordHashed, 
-                    isVerified, 
-                    loginAttemps, 
+                    isVerified,  
                     timeOut
                 },
                 //#2- Secret key
@@ -62,8 +60,8 @@ registerCustomerController.register = async (req, res) => {
             const Transporter = nodemailer.createTransport ({
                 service: "gmail",
                 auth: {
-                    user: config.user_email,
-                    pass: config.user_password
+                    user: config.email.user_email,
+                    pass: config.email.user_password
                 },
             });
 
@@ -79,7 +77,7 @@ registerCustomerController.register = async (req, res) => {
             //#3- Enviar el correo electronico
             Transporter.sendMail(mailOptions, (error, info)=>{
                 if(error){
-                    console.log("error")
+                    console.log("error"+error)
                     return res.status(500).json({message: "Error sending email"})
                 }
 
