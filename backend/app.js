@@ -11,6 +11,7 @@ import logoutCustomerRoutes from "./src/routes/logout.js"
 import cors from "cors";
 import cookieParser from "cookie-parser"
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
+import providerRoutes from "./src/routes/provider.js"
 
 //Crear una constante que el igual a
 //la libreria Express
@@ -37,6 +38,6 @@ app.use("/api/registerEmployee", registerEmployeeRoutes);
 app.use("/api/loginCustomers", loginCustomerRoutes);
 app.use("/api/logout", logoutCustomerRoutes);
 app.use("/api/recoveryPassword", recoveryPasswordRoutes);
-app.use("/api/providers")
+app.use("/api/providers", providerRoutes);
 
 export default app;
