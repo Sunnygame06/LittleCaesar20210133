@@ -12,6 +12,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser"
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import providerRoutes from "./src/routes/provider.js"
+import cartRoutes from "./src/routes/cart.js"
 
 //Crear una constante que el igual a
 //la libreria Express
@@ -39,5 +40,6 @@ app.use("/api/loginCustomers", loginCustomerRoutes);
 app.use("/api/logout", logoutCustomerRoutes);
 app.use("/api/recoveryPassword", recoveryPasswordRoutes);
 app.use("/api/providers", providerRoutes);
+app.use("/api/cart", cartRoutes);
 
 export default app;
